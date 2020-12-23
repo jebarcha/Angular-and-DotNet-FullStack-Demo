@@ -1,0 +1,256 @@
+{
+	"info": {
+		"_postman_id": "a636802a-4ec4-49d7-bfe4-355ab6da9312",
+		"name": "EShopping-Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Products - Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlApi}}products",
+							"host": [
+								"{{urlApi}}products"
+							]
+						},
+						"description": "Get the list of products"
+					},
+					"response": []
+				},
+				{
+					"name": "Products - Get a product by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlApi}}products/15",
+							"host": [
+								"{{urlApi}}products"
+							],
+							"path": [
+								"15"
+							]
+						},
+						"description": "get a product by Id"
+					},
+					"response": []
+				},
+				{
+					"name": "Products - Add new product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 0,\r\n    \"name\": \"Guitarra Electricoacustica Luna VII\",\r\n    \"price\": 45000.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlApi}}products",
+							"host": [
+								"{{urlApi}}products"
+							]
+						},
+						"description": "Products - Add new product"
+					},
+					"response": []
+				},
+				{
+					"name": "Products - update product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 15,\r\n    \"name\": \"Guitarra Electrica Jackson Kerry King\",\r\n    \"price\": 50000.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlApi}}products/15",
+							"host": [
+								"{{urlApi}}products"
+							],
+							"path": [
+								"15"
+							]
+						},
+						"description": "Products - update product"
+					},
+					"response": []
+				},
+				{
+					"name": "Products - Delete a product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{urlApi}}products/14",
+							"host": [
+								"{{urlApi}}products"
+							],
+							"path": [
+								"14"
+							]
+						},
+						"description": "Update product status to 0\r\ndo not delete physically"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Profiles",
+			"item": [
+				{
+					"name": "Profiles - Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlApi}}profiles",
+							"host": [
+								"{{urlApi}}profiles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Profiles - GetById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlApi}}profiles/2",
+							"host": [
+								"{{urlApi}}profiles"
+							],
+							"path": [
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Profiles - Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 0,\r\n    \"name\": \"Test\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlApi}}profiles",
+							"host": [
+								"{{urlApi}}profiles"
+							]
+						},
+						"description": "Add a new profile"
+					},
+					"response": []
+				},
+				{
+					"name": "Profiles - Put",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlApi}}profiles/4",
+							"host": [
+								"{{urlApi}}profiles"
+							],
+							"path": [
+								"4"
+							]
+						},
+						"description": "Update Profile"
+					},
+					"response": []
+				},
+				{
+					"name": "Profiles - Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlApi}}profiles/4",
+							"host": [
+								"{{urlApi}}profiles"
+							],
+							"path": [
+								"4"
+							]
+						},
+						"description": "Delete from db"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "urlApi",
+			"value": "https://localhost:44359/api/"
+		}
+	]
+}
