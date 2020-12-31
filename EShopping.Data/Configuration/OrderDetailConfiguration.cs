@@ -24,7 +24,7 @@ namespace EShopping.Data.Configuration
             entity.Property(e => e.UnitPrice).HasColumnType("decimal(18, 2)");
 
             entity.HasOne(d => d.Order)
-                .WithMany(p => p.OrderDetails)
+                .WithMany(p => p.OrderDetail)
                 .HasForeignKey(d => d.OrderId);
 
             entity.HasOne(d => d.Product)

@@ -135,12 +135,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{urlApi}}profiles/2",
+							"raw": "{{urlApi}}profiles/4",
 							"host": [
 								"{{urlApi}}profiles"
 							],
 							"path": [
-								"2"
+								"4"
 							]
 						}
 					},
@@ -221,6 +221,295 @@
 							]
 						},
 						"description": "Delete from db"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Orders - Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlApi}}orders",
+							"host": [
+								"{{urlApi}}orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Orders - Get By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlApi}}orders/1",
+							"host": [
+								"{{urlApi}}orders"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Orders - Get Orders With Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlApi}}orders/details",
+							"host": [
+								"{{urlApi}}orders"
+							],
+							"path": [
+								"details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Orders - Get Order With Detail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlApi}}orders/1/details",
+							"host": [
+								"{{urlApi}}orders"
+							],
+							"path": [
+								"1",
+								"details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Orders - Delete Order By Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{urlApi}}orders/3",
+							"host": [
+								"{{urlApi}}orders"
+							],
+							"path": [
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Orders - Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 0,\r\n    \"itemsQuantity\": 2,\r\n    \"amount\": 30000.00,\r\n    \"userId\": 1,\r\n    \"orderDetail\": [\r\n        {\r\n            \"productId\": 1,\r\n            \"product\": \"Guitarra Eléctrica PRS SE Custom 24\",\r\n            \"quantity\": 1,\r\n            \"unitPrice\": 15000,\r\n            \"total\": 15000\r\n        },\r\n        {\r\n            \"productId\": 3,\r\n            \"product\": \"Guitarra Eléctrica Ibanez 550G\",\r\n            \"quantity\": 1,\r\n            \"unitPrice\": 15000,\r\n            \"total\": 20000\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlApi}}orders",
+							"host": [
+								"{{urlApi}}orders"
+							]
+						},
+						"description": "Add new order"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Users - Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlApi}}users",
+							"host": [
+								"{{urlApi}}users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Users - GetById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{urlApi}}users",
+							"host": [
+								"{{urlApi}}users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Users - Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 0,\r\n    \"name\": \"Jose\",\r\n    \"lastname\": \"Barajas\",\r\n    \"email\": \"jbarajas@correo.com\",\r\n    \"username\": \"jbarajas\",\r\n    \"password\": \"123456\",\r\n    \"profileId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlApi}}users",
+							"host": [
+								"{{urlApi}}users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Users - Put",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"Admin1\",\r\n    \"lastname\": \"Barajas\",\r\n    \"email\": \"admin1@correo.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlApi}}users/1",
+							"host": [
+								"{{urlApi}}users"
+							],
+							"path": [
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Users - Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{urlApi}}users/4",
+							"host": [
+								"{{urlApi}}users"
+							],
+							"path": [
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Users - PostChangePassword",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlApi}}users/changepassword",
+							"host": [
+								"{{urlApi}}users"
+							],
+							"path": [
+								"changepassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Users - PostValidateUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlApi}}users/validateuser",
+							"host": [
+								"{{urlApi}}users"
+							],
+							"path": [
+								"validateuser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Users - PostChangeProfile",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"profileId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{urlApi}}users/changeprofile",
+							"host": [
+								"{{urlApi}}users"
+							],
+							"path": [
+								"changeprofile"
+							]
+						}
 					},
 					"response": []
 				}

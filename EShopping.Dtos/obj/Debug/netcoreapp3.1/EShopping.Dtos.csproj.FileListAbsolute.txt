@@ -10,12 +10,12 @@ C:\MisCursos\WebAPI_NetCore3\MyWebAPIDemo\EShopping\EShopping.Dtos\obj\Debug\net
 C:\EvolveSilver\EShopping\EShopping.Dtos\bin\Debug\netcoreapp3.1\EShopping.Dtos.deps.json
 C:\EvolveSilver\EShopping\EShopping.Dtos\bin\Debug\netcoreapp3.1\EShopping.Dtos.dll
 C:\EvolveSilver\EShopping\EShopping.Dtos\bin\Debug\netcoreapp3.1\EShopping.Dtos.pdb
-C:\EvolveSilver\EShopping\EShopping.Dtos\obj\Debug\netcoreapp3.1\EShopping.Dtos.AssemblyInfoInputs.cache
-C:\EvolveSilver\EShopping\EShopping.Dtos\obj\Debug\netcoreapp3.1\EShopping.Dtos.AssemblyInfo.cs
-C:\EvolveSilver\EShopping\EShopping.Dtos\obj\Debug\netcoreapp3.1\EShopping.Dtos.csproj.CoreCompileInputs.cache
-C:\EvolveSilver\EShopping\EShopping.Dtos\obj\Debug\netcoreapp3.1\EShopping.Dtos.dll
-C:\EvolveSilver\EShopping\EShopping.Dtos\obj\Debug\netcoreapp3.1\EShopping.Dtos.pdb
 C:\EvolveSilver\EShopping\EShopping.Dtos\bin\Debug\netcoreapp3.1\EShopping.Models.dll
 C:\EvolveSilver\EShopping\EShopping.Dtos\bin\Debug\netcoreapp3.1\EShopping.Models.pdb
 C:\EvolveSilver\EShopping\EShopping.Dtos\obj\Debug\netcoreapp3.1\EShopping.Dtos.csprojAssemblyReference.cache
+C:\EvolveSilver\EShopping\EShopping.Dtos\obj\Debug\netcoreapp3.1\EShopping.Dtos.AssemblyInfoInputs.cache
+C:\EvolveSilver\EShopping\EShopping.Dtos\obj\Debug\netcoreapp3.1\EShopping.Dtos.AssemblyInfo.cs
+C:\EvolveSilver\EShopping\EShopping.Dtos\obj\Debug\netcoreapp3.1\EShopping.Dtos.csproj.CoreCompileInputs.cache
 C:\EvolveSilver\EShopping\EShopping.Dtos\obj\Debug\netcoreapp3.1\EShopping.Dtos.csproj.CopyComplete
+C:\EvolveSilver\EShopping\EShopping.Dtos\obj\Debug\netcoreapp3.1\EShopping.Dtos.dll
+C:\EvolveSilver\EShopping\EShopping.Dtos\obj\Debug\netcoreapp3.1\EShopping.Dtos.pdb

@@ -10,7 +10,7 @@ namespace EShopping.Models
     {
         public Order()
         {
-            OrderDetails = new HashSet<OrderDetail>();
+            OrderDetail = new HashSet<OrderDetail>();
         }
 
         public int Id { get; set; }
@@ -22,6 +22,6 @@ namespace EShopping.Models
         public OrderStatus OrderStatus { get; set; }
 
         public virtual User User { get; set; }
-        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+        public virtual ICollection<OrderDetail> OrderDetail { get; set; }
     }
 }

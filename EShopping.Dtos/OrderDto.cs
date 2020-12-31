@@ -14,13 +14,13 @@ namespace EShopping.Dtos
         }
 
         public int Id { get; set; }
-        public decimal CantidadArticulos { get; set; }
-        public decimal Importe { get; set; }
-        [Required]
-        public DateTime FechaRegistro { get; set; }
-        public int UsuarioId { get; set; }
-        public string Usuario { get; set; }
-        public OrderStatus EstatusOrden { get; set; }
+        public decimal ItemsQuantity { get; set; }
+        public decimal Amount { get; set; }
+        //[Required]
+        public DateTime? DateAdded { get; set; }
+        public int UserId { get; set; }
+        public string User { get; set; }
+        //public OrderStatus OrderStatus { get; set; }
         public List<OrderDetailDto> OrderDetail { get; set; }
     }
 }

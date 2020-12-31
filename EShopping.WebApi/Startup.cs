@@ -2,9 +2,10 @@ using AutoMapper;
 using EShopping.Data;
 using EShopping.Data.Contracts;
 using EShopping.Data.Repositories;
-using JMusik.Data.Repositorios;
+using EShopping.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -38,6 +39,11 @@ namespace EShopping.WebApi
 
             services.AddScoped<IGenericRepository<Models.Profile>, ProfilesRepository>();
             services.AddScoped<IProductsRepository, ProductsRepository>();
+            services.AddScoped<IOrdersRepository, OrdersRepository>();
+
+            services.AddScoped<IUsersRepository, UsersRepository>();
+
+            services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
 
         }
 

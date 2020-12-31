@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JMusik.Data.Repositorios
+namespace EShopping.Data.Repositories
 {
     public class ProfilesRepository : IGenericRepository<Profile>
     {
