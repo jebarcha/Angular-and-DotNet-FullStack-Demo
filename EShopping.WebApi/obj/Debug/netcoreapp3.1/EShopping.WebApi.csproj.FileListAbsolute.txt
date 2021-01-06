@@ -187,8 +187,6 @@ C:\EvolveSilver\EShopping\EShopping.WebApi\bin\Debug\netcoreapp3.1\EShopping.Mod
 C:\EvolveSilver\EShopping\EShopping.WebApi\obj\Debug\netcoreapp3.1\EShopping.WebApi.csprojAssemblyReference.cache
 C:\EvolveSilver\EShopping\EShopping.WebApi\obj\Debug\netcoreapp3.1\EShopping.WebApi.AssemblyInfoInputs.cache
 C:\EvolveSilver\EShopping\EShopping.WebApi\obj\Debug\netcoreapp3.1\EShopping.WebApi.AssemblyInfo.cs
-C:\EvolveSilver\EShopping\EShopping.WebApi\obj\Debug\netcoreapp3.1\EShopping.WebApi.csproj.CoreCompileInputs.cache
-C:\EvolveSilver\EShopping\EShopping.WebApi\obj\Debug\netcoreapp3.1\EShopping.WebApi.MvcApplicationPartsAssemblyInfo.cache
 C:\EvolveSilver\EShopping\EShopping.WebApi\obj\Debug\netcoreapp3.1\EShopping.WebApi.RazorTargetAssemblyInfo.cache
 C:\EvolveSilver\EShopping\EShopping.WebApi\obj\Debug\netcoreapp3.1\EShopping.WebApi.csproj.CopyComplete
 C:\EvolveSilver\EShopping\EShopping.WebApi\obj\Debug\netcoreapp3.1\staticwebassets\EShopping.WebApi.StaticWebAssets.Manifest.cache
@@ -196,3 +194,6 @@ C:\EvolveSilver\EShopping\EShopping.WebApi\obj\Debug\netcoreapp3.1\staticwebasse
 C:\EvolveSilver\EShopping\EShopping.WebApi\obj\Debug\netcoreapp3.1\EShopping.WebApi.dll
 C:\EvolveSilver\EShopping\EShopping.WebApi\obj\Debug\netcoreapp3.1\EShopping.WebApi.pdb
 C:\EvolveSilver\EShopping\EShopping.WebApi\obj\Debug\netcoreapp3.1\EShopping.WebApi.genruntimeconfig.cache
+C:\EvolveSilver\EShopping\EShopping.WebApi\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\EvolveSilver\EShopping\EShopping.WebApi\obj\Debug\netcoreapp3.1\EShopping.WebApi.csproj.CoreCompileInputs.cache
+C:\EvolveSilver\EShopping\EShopping.WebApi\obj\Debug\netcoreapp3.1\EShopping.WebApi.MvcApplicationPartsAssemblyInfo.cache

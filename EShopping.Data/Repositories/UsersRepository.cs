@@ -141,5 +141,26 @@ namespace EShopping.Data.Repositories
             }
             return false;
         }
+
+        public async Task<(bool result, User user)> ValidateLogin(User loginUser)
+        {
+            var userDb = await _dbSet
+                                    .Include(u => u.Profile)
+                                    .FirstOrDefaultAsync(u => u.Username == loginUser.Username);
+            if (userDb != null)
+            {
+                try
+                {
+                    var result = _passwordHasher.VerifyHashedPassword(userDb, userDb.Password, loginUser.Password);
+                    return (result == PasswordVerificationResult.Success ? true : false, userDb);
+                }
+                catch (Exception excepcion)
+                {
+                    _logger.LogError($"Error in {nameof(ValidateLogin)}: " + excepcion.Message);
+                }
+            }
+            return (false, null);
+        }
+
     }
 }

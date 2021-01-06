@@ -8,5 +8,6 @@ namespace EShopping.Data.Contracts
         Task<bool> ChangePassword(User user);
         Task<bool> ChangeProfile(User user);
         Task<bool> ValidatePassword(User user);
+        Task<(bool result, User user)> ValidateLogin(User LoginUser);
     }
 }

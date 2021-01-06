@@ -3,6 +3,8 @@ using EShopping.Data;
 using EShopping.Data.Contracts;
 using EShopping.Data.Repositories;
 using EShopping.Models;
+using EShopping.WebApi.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -11,7 +13,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using Serilog;
+using System;
+using System.Text;
 
 namespace EShopping.WebApi
 {
@@ -44,6 +49,54 @@ namespace EShopping.WebApi
             services.AddScoped<IUsersRepository, UsersRepository>();
 
             services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
+            services.AddSingleton<TokenService>();
+
+            //Accedemos a la sección JwtSettings del archivo appsettings.json
+            var jwtSettings = Configuration.GetSection("JwtSettings");
+            //Obtenemos la clave secreta guardada en JwtSettings:SecretKey
+            string secretKey = jwtSettings.GetValue<string>("SecretKey");
+            //Obtenemos el tiempo de vida en minutos del Jwt guardada en JwtSettings:MinutesToExpiration
+            int minutes = jwtSettings.GetValue<int>("MinutesToExpiration");
+            //Obtenemos el valor del emisor del token en JwtSettings:Issuer
+            string issuer = jwtSettings.GetValue<string>("Issuer");
+            //Obtenemos el valor de la audiencia a la que está destinado el Jwt en JwtSettings:Audience
+            string audience = jwtSettings.GetValue<string>("Audience");
+
+            var key = Encoding.ASCII.GetBytes(secretKey);
+
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(x =>
+            {
+                x.RequireHttpsMetadata = false;  // true in Production
+                x.SaveToken = true;
+                x.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = true,
+                    ValidIssuer = issuer,
+                    ValidateAudience = true,
+                    ValidAudience = audience,
+                    ValidateLifetime = true,
+                    ClockSkew = TimeSpan.FromMinutes(minutes)
+                };
+            });
+
+            services.AddCors(options =>
+            {
+
+                options.AddPolicy("CorsPolicy",
+                    builder =>
+                    {
+                        builder.AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader();
+                    });
+
+            });
 
         }
 
@@ -58,6 +111,10 @@ namespace EShopping.WebApi
             }
 
             app.UseRouting();
+
+            app.UseCors("CorsPolicy");
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
