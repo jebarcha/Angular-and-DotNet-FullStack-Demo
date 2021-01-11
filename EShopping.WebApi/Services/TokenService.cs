@@ -36,7 +36,7 @@ namespace EShopping.WebApi.Services
             var key = Encoding.ASCII.GetBytes(secretKey);
 
             //Creamos nuestra lista de Claims, en este caso para el Username,
-            //el Email y el Perfil del Usuario.
+            //email and user profile
             List<Claim> claims = new List<Claim>();
             claims.Add(new Claim(ClaimTypes.Name,user.Username));
             claims.Add(new Claim(ClaimTypes.Email, user.Email));

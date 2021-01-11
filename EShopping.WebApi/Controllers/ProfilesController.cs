@@ -6,12 +6,14 @@ using AutoMapper;
 using EShopping.Data.Contracts;
 using EShopping.Dtos;
 using EShopping.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 namespace EShopping.WebApi.Controllers
 {
+    //[Authorize(Roles = "Admin")]
     [Route("api/[controller]")]
     [ApiController]
     public class ProfilesController : ControllerBase

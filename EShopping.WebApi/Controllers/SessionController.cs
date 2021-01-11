@@ -7,11 +7,13 @@ using EShopping.Data.Contracts;
 using EShopping.Dtos;
 using EShopping.Models;
 using EShopping.WebApi.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EShopping.WebApi.Controllers
 {
+    [AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
     public class SessionController : ControllerBase

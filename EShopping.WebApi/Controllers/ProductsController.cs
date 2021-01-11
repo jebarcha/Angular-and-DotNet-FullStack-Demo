@@ -11,9 +11,11 @@ using EShopping.Data.Contracts;
 using AutoMapper;
 using EShopping.Dtos;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EShopping.WebApi.Controllers
 {
+    [Authorize(Roles = "Admin,Seller")]
     [Route("api/[controller]")]
     [ApiController]
     public class ProductsController : ControllerBase

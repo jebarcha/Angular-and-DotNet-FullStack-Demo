@@ -69,7 +69,8 @@ namespace EShopping.Data.Repositories
 
         public async Task<bool> ChangePassword(User User)
         {            
-            var UserBd = await _dbSet.FirstOrDefaultAsync(u => u.Id == User.Id);
+            //var UserBd = await _dbSet.FirstOrDefaultAsync(u => u.Id == User.Id);
+            var UserBd = await _dbSet.FirstOrDefaultAsync(u => u.Username == User.Username);
             UserBd.Password = _passwordHasher.HashPassword(UserBd, User.Password);
             try
             {
