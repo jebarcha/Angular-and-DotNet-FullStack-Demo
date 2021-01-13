@@ -14,12 +14,12 @@ namespace EShopping.Data.Repositories
 
     public class ProductsRepository : IProductsRepository
     {
-        private EShoppingDbContext _contexto;
+        private EShoppingDbContext _context;
         private readonly ILogger<ProductsRepository> _logger;
 
         public ProductsRepository(EShoppingDbContext contexto, ILogger<ProductsRepository> logger)
         {
-            _contexto = contexto;
+            _context = contexto;
             this._logger = logger;
         }
         public async Task<bool> Update(Product product)
@@ -32,7 +32,7 @@ namespace EShopping.Data.Repositories
             //_contexto.Entry(producto).State = EntityState.Modified;
             try
             {
-                return await _contexto.SaveChangesAsync() > 0 ? true : false;
+                return await _context.SaveChangesAsync() > 0 ? true : false;
             }
             catch (Exception ex)
             {
@@ -46,10 +46,10 @@ namespace EShopping.Data.Repositories
             product.Status = ProductStatus.Active;
             product.DateAdded = DateTime.UtcNow;
 
-            _contexto.Products.Add(product);
+            _context.Products.Add(product);
             try
             {
-                await _contexto.SaveChangesAsync();
+                await _context.SaveChangesAsync();
             }
             catch (Exception ex)
             {
@@ -63,16 +63,16 @@ namespace EShopping.Data.Repositories
         {
             //Se realiza una eliminación suave, solamente inactivamos el producto
 
-            var product = await _contexto.Products
+            var product = await _context.Products
                                 .SingleOrDefaultAsync(c => c.Id == id);
 
             product.Status = ProductStatus.Inactive;
-            _contexto.Products.Attach(product);
-            _contexto.Entry(product).State = EntityState.Modified;
+            _context.Products.Attach(product);
+            _context.Entry(product).State = EntityState.Modified;
 
             try
             {
-                return (await _contexto.SaveChangesAsync() > 0 ? true : false);
+                return (await _context.SaveChangesAsync() > 0 ? true : false);
             }
             catch (Exception ex)
             {
@@ -84,16 +84,30 @@ namespace EShopping.Data.Repositories
 
         public async Task<Product> GetProductAsync(int id)
         {
-            return await _contexto.Products
+            return await _context.Products
                                .SingleOrDefaultAsync(c => c.Id == id && c.Status == ProductStatus.Active);
         }
 
         public async Task<List<Product>> GetProductsAsync()
         {
-            return await _contexto.Products
+            return await _context.Products
                 .Where(u => u.Status == ProductStatus.Active)
                 .OrderBy(u => u.Name)
                    .ToListAsync();
+        }
+
+        public async Task<(int totalRecords, IEnumerable<Product> records)> GetPagesProductsAsync(int currentPage, int recordsPerPage)
+        {
+            var totalRecords = await _context.Products
+                .Where(u => u.Status == ProductStatus.Active)
+                .CountAsync();
+
+            var records = await _context.Products
+                                .Where(u => u.Status == ProductStatus.Active)
+                                .Skip((currentPage - 1) * recordsPerPage)
+                                .Take(recordsPerPage)
+                                .ToListAsync();
+            return (totalRecords, records);
         }
     }
 

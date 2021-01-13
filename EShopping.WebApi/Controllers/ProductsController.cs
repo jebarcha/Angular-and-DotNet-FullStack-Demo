@@ -12,6 +12,7 @@ using AutoMapper;
 using EShopping.Dtos;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Authorization;
+using EShopping.WebApi.Helpers;
 
 namespace EShopping.WebApi.Controllers
 {
@@ -37,12 +38,19 @@ namespace EShopping.WebApi.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<IEnumerable<ProductDto>>> Get()
+        //public async Task<ActionResult<IEnumerable<ProductDto>>> Get()
+        public async Task<ActionResult<Paginator<ProductDto>>> Get(int currentPage=1, int recordsPerPage=3)
         {
             try
             {
-                var products = await _productsRepository.GetProductsAsync();
-                return _mapper.Map<List<ProductDto>>(products);
+                var result = await _productsRepository.GetPagesProductsAsync(currentPage, recordsPerPage);
+
+                var listProductsDto = _mapper.Map<List<ProductDto>>(result.records);
+
+                return new Paginator<ProductDto>(listProductsDto, result.totalRecords, currentPage, recordsPerPage);
+
+                //var products = await _productsRepository.GetProductsAsync();
+                //return _mapper.Map<List<ProductDto>>(products);
             }
             catch (Exception ex)
             {

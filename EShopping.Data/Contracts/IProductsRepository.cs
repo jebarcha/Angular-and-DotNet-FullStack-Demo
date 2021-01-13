@@ -13,6 +13,10 @@ namespace EShopping.Data.Contracts
         Task<Product> Add(Product product);
         Task<bool> Update(Product product);
         Task<bool> Delete(int id);
+
+
+        Task<(int totalRecords, IEnumerable<Product> records)> GetPagesProductsAsync(
+            int currentPage, int recordsPerPage);
     }
 
 }

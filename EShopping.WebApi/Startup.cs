@@ -46,12 +46,18 @@ namespace EShopping.WebApi
             services.AddDbContext<EShoppingDbContext>(options => 
                 options.UseSqlServer(Configuration.GetConnectionString("EShoppingDb")));
 
+
+            //var coonectionString = "Data Source=local\\MSSQLSERVER01;Initial Catalog=EShoppingDb;Integrated Security=True";
+            //services.AddDbContext<EShoppingDbContext>(options => options.UseSqlServer(coonectionString, builder => builder.UseRowNumberForPaging()));
+
+
+
+
             services.ConfigureDependencies();
 
             services.ConfigureJwt(Configuration);
 
             services.ConfigureCors();
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
