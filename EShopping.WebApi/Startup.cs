@@ -47,13 +47,10 @@ namespace EShopping.WebApi
                 options.UseSqlServer(Configuration.GetConnectionString("EShoppingDb")));
 
 
-            //var coonectionString = "Data Source=local\\MSSQLSERVER01;Initial Catalog=EShoppingDb;Integrated Security=True";
-            //services.AddDbContext<EShoppingDbContext>(options => options.UseSqlServer(coonectionString, builder => builder.UseRowNumberForPaging()));
 
 
 
-
-            services.ConfigureDependencies();
+        services.ConfigureDependencies();
 
             services.ConfigureJwt(Configuration);
 

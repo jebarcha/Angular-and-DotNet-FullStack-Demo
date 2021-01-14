@@ -14,9 +14,19 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{urlApi}}products",
+							"raw": "{{urlApi}}products?currentpage=3&recordsperpage=5",
 							"host": [
 								"{{urlApi}}products"
+							],
+							"query": [
+								{
+									"key": "currentpage",
+									"value": "3"
+								},
+								{
+									"key": "recordsperpage",
+									"value": "5"
+								}
 							]
 						},
 						"description": "Get the list of products"
